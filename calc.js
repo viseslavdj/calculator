@@ -37,7 +37,7 @@ const numbersB = document.querySelectorAll('.eq');
 const opB = document.querySelectorAll('ops');
 const eqB = document.getElementById('equal');
 const clearB = document.getElementById('clear');
-const prevOper = document.getElementById('prevOp');
+const nextOper = document.getElementById('prevOp');
 const currOper = document.getElementById('currOp');
 
 window.addEventListener('keydown', kbInput);
@@ -84,12 +84,12 @@ function math(){
         return;
     sn = currOper.textContent;
     currOper.textContent = operate(operation, fn, sn);
-    prevOper.textContent = `${fn} ${operation} ${sn} =`
+    nextOper.textContent = `${fn} ${operation} ${sn} =`
     operation = null;    
 }
 function clear(){
     currOper.textContent ='0';
-    prevOper.textContent = '';
+    nextOper.textContent = '';
     fn = '';
     sn ='';
     operation = null;
@@ -99,6 +99,6 @@ function setOp(op){
         math();
     fn = currOper.textContent;
     operation = op;
-    prevOper.textContent = `${fn} ${operation}`;
+    nextOper.textContent = `${fn} ${operation}`;
     currOper.textContent = '';
 }
